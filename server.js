@@ -22,12 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // Database Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/inazuma-battle', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/inazuma-battle')
 .then(() => console.log('✅ MongoDB Connected'))
-.catch(err => console.error('❌ MongoDB Connection Error:', err));
+.catch(err => {
+  console.error('❌ MongoDB Connection Error:', err);
+  console.error('Connection String:', process.env.MONGODB_URI ? 'Set' : 'Not Set');
+});
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -70,9 +70,10 @@ const PORT = process.env.PORT || 5000;
 // Start tournament scheduler
 const { startTournamentScheduler } = require('./utils/tournamentScheduler');
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🌐 Listening on 0.0.0.0:${PORT}`);
   
   // Start the tournament auto-archiver
   startTournamentScheduler();
