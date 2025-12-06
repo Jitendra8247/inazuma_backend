@@ -14,7 +14,7 @@ services:
         value: 5000
       - key: MONGODB_URI
         sync: false
-      - key: JWT_SECRET
+      - key: 74f5dbfcbe691f445d3a2cd69f4d7213c7f48688bde54d2586b38f741fd7db63
         generateValue: true
       - key: FRONTEND_URL
         sync: false
