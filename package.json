@@ -7,7 +7,10 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node scripts/seedDatabase.js",
-    "clear-players": "node scripts/clearPlayers.js"
+    "clear-players": "node scripts/clearPlayers.js",
+    "create-organizer": "node scripts/createOrganizer.js",
+    "create-player": "node scripts/createPlayer.js",
+    "test-registration": "node scripts/testRegistration.js"
   },
   "keywords": [
     "esports",
