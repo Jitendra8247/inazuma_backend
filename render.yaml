@@ -12,9 +12,9 @@ services:
         value: production
       - key: PORT
         value: 5000
-      - key: MONGODB_URI
+      - key: mongodb+srv://jroy03062_db_user:YVl5fVOd6g76yoop@cluster0.czsplks.mongodb.net/inazuma-battle?retryWrites=true&w=majority
         sync: false
       - key: 74f5dbfcbe691f445d3a2cd69f4d7213c7f48688bde54d2586b38f741fd7db63
         generateValue: true
-      - key: FRONTEND_URL
+      - key: inazuma1.vercel.app
         sync: false
